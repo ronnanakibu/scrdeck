@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Rust / Tauri build artifacts (excludes all intermediate caches, compiler targets)
+target/
+src-tauri/target/
+*.pdb
+*.obj
+*.o
+*.a
+*.lib
+*.rlib
+
+# Frontend build output
+dist/
+
+# Claude and editor files
+.claude/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosv
+*.sln.docstates
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+credentials.json
+*.pem
+*.key
+
+# OS and temp files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+*.tmp
+*.temp
+
+# Binary build spec exports (markdown source ScrDeck_Product_Build_Spec_v1.0.md is tracked)
+*.docx
+*.pdf
+
+# Allow release executables
+!release/*.exe

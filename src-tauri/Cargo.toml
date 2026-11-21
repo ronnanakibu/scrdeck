@@ -1,0 +1,39 @@
+[package]
+name = "scrdeck"
+version = "0.1.0"
+description = "Independent GUI companion for scrcpy and ADB"
+authors = ["ScrDeck Contributors"]
+license = "MIT"
+edition = "2021"
+
+[lib]
+name = "scrdeck_lib"
+crate-type = ["rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.0.5", features = [] }
+
+[dependencies]
+tauri = { version = "2.2.5", features = [] }
+tauri-plugin-dialog = "2.2.0"
+tauri-plugin-opener = "2.2.5"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.43", features = ["full"] }
+uuid = { version = "1.11", features = ["v4"] }
+chrono = { version = "0.4", features = ["serde"] }
+reqwest = { version = "0.12", default-features = false, features = ["native-tls", "stream", "json"] }
+zip = { version = "2.2", default-features = false, features = ["deflate"] }
+sha2 = "0.10"
+hex = "0.4"
+thiserror = "2.0"
+dirs = "6.0"
+regex = "1.11"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.59", features = [
+  "Win32_Foundation",
+  "Win32_System_JobObjects",
+  "Win32_System_Threading",
+  "Win32_Security",
+] }

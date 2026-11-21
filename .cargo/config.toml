@@ -1,0 +1,10 @@
+[build]
+target = "x86_64-pc-windows-gnu"
+
+[target.x86_64-pc-windows-gnu]
+linker = "rust-lld"
+rustflags = ["-C", "link-self-contained=yes"]
+
+[host]
+linker = "rust-lld"
+rustflags = ["-C", "link-self-contained=yes"]
