@@ -6,7 +6,7 @@
 
 **ScrDeck** is a fast, local-first, open-source graphical companion for the original [scrcpy](https://github.com/Genymobile/scrcpy) project and Android Debug Bridge (**ADB**).
 
-[![Release](https://img.shields.io/badge/release-v1.0.0-blue.svg)](https://github.com/ronnanakibu/scrdeck/releases)
+[![Release](https://img.shields.io/badge/release-V1-blue.svg)](https://github.com/ronnanakibu/scrdeck/releases/tag/V1)
 [![Platform](https://img.shields.io/badge/platform-Windows%20x64-0078D6.svg)](https://github.com/ronnanakibu/scrdeck)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Built with Tauri](https://img.shields.io/badge/backend-Tauri%20v2%20(Rust)-FFC131.svg)](https://tauri.app)
@@ -24,12 +24,14 @@ ScrDeck eliminates the friction of remembering and typing complex command-line a
 
 ## 📦 Download & Installation
 
-Prebuilt Windows x64 executables are included directly in the repository under [`release/`](release/):
+Prebuilt Windows x64 executables are available directly via official GitHub Releases:
 
-| Asset | Description | Direct Link |
+| Asset | Description | Direct Download |
 | :--- | :--- | :--- |
-| **Windows Installer** | Recommended NSIS installer with desktop shortcuts and auto-updater hooks | [`ScrDeck-v1.0.0-Setup.exe`](release/ScrDeck-v1.0.0-Setup.exe) |
-| **Portable Executable** | Standalone portable executable (no installation required) | [`scrdeck.exe`](release/scrdeck.exe) |
+| **Windows Installer** | Recommended NSIS installer with desktop shortcuts and auto-updater hooks | [⬇️ **Download ScrDeck-v1.0.0-Setup.exe**](https://github.com/ronnanakibu/scrdeck/releases/download/V1/ScrDeck-v1.0.0-Setup.exe) |
+| **Portable Executable** | Standalone portable executable (no installation required) | [⬇️ **Download scrdeck.exe**](https://github.com/ronnanakibu/scrdeck/releases/download/V1/scrdeck.exe) |
+
+> 💡 **Release Hub:** View all release notes and checksums on the [ScrDeck V1 Release Page](https://github.com/ronnanakibu/scrdeck/releases/tag/V1).
 
 > **Note:** On first launch, Windows SmartScreen may show an untrusted warning because the executable is community-built and not signed with an expensive commercial EV certificate. Click **"More info"** &rarr; **"Run anyway"**.
 
