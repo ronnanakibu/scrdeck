@@ -47,3 +47,7 @@ desktop.ini
 
 # Allow release executables
 !release/*.exe
+
+__pycache__/
+*.pyc
+
