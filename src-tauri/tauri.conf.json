@@ -34,6 +34,9 @@
       "icons/icon.ico",
       "icons/icon.png"
     ],
+    "resources": {
+      "bin/WebView2Loader.dll": "WebView2Loader.dll"
+    },
     "windows": {
       "webviewInstallMode": {
         "type": "downloadBootstrapper"

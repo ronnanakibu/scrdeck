@@ -1,0 +1,38 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background subtle gradient -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#222830"/>
+      <stop offset="100%" stop-color="#171B20"/>
+    </linearGradient>
+
+    <!-- Subtle glow for the bridge connection node -->
+    <filter id="bridgeGlow" x="70" y="44" width="40" height="40" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- App Icon Base Squircle Container -->
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="url(#bgGrad)" stroke="#39424C" stroke-width="2"/>
+
+  <!-- Back Device Outline (PC / Primary Display) -->
+  <rect x="24" y="34" width="56" height="74" rx="10" stroke="#7F8A95" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+  <!-- Back Device Screen Interior line -->
+  <line x1="38" y1="44" x2="52" y2="44" stroke="#7F8A95" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Front Device Outline (Android Phone - Offset & Foreground) -->
+  <rect x="52" y="20" width="54" height="74" rx="10" fill="#222830" stroke="#C5E66A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Front Device Speaker / Notch line -->
+  <line x1="69" y1="28" x2="89" y2="28" stroke="#C5E66A" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
+
+  <!-- Connection Bridge Node (Sync / Scrcpy ADB Link) -->
+  <g filter="url(#bridgeGlow)">
+    <circle cx="90" cy="64" r="8" fill="#C5E66A"/>
+    <circle cx="90" cy="64" r="3.5" fill="#171B20"/>
+  </g>
+
+  <!-- Active Status Ping Pulse Indicator -->
+  <circle cx="34" cy="98" r="4" fill="#55BE91"/>
+</svg>

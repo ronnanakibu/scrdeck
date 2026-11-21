@@ -1,6 +1,8 @@
-# ScrDeck
-
 <div align="center">
+
+<img src="assets/logo.png" alt="ScrDeck Logo" width="120" height="120" />
+
+# ScrDeck
 
 ### Your Android. Your Workspace.
 
@@ -28,8 +30,9 @@ Prebuilt Windows x64 executables are available directly via official GitHub Rele
 
 | Asset | Description | Direct Download |
 | :--- | :--- | :--- |
-| **Windows Installer** | Recommended NSIS installer with desktop shortcuts and auto-updater hooks | [⬇️ **Download ScrDeck-v1.0.0-Setup.exe**](https://github.com/ronnanakibu/scrdeck/releases/download/V1/ScrDeck-v1.0.0-Setup.exe) |
-| **Portable Executable** | Standalone portable executable (no installation required) | [⬇️ **Download scrdeck.exe**](https://github.com/ronnanakibu/scrdeck/releases/download/V1/scrdeck.exe) |
+| **Windows Installer (Recommended)** | NSIS setup installer with desktop shortcuts and system integration | [⬇️ **Download ScrDeck-v1.0.0-Setup.exe**](https://github.com/ronnanakibu/scrdeck/releases/download/V1/ScrDeck-v1.0.0-Setup.exe) |
+| **Portable Package (.zip)** | Full portable package (no installation required; includes `scrdeck.exe` & `WebView2Loader.dll`) | [⬇️ **Download ScrDeck-v1.0.0-Portable.zip**](https://github.com/ronnanakibu/scrdeck/releases/download/V1/ScrDeck-v1.0.0-Portable.zip) |
+| **Standalone Executable** | Standalone binary (`WebView2Loader.dll` must be in the same folder) | [⬇️ **Download scrdeck.exe**](https://github.com/ronnanakibu/scrdeck/releases/download/V1/scrdeck.exe) &middot; [⬇️ **WebView2Loader.dll**](https://github.com/ronnanakibu/scrdeck/releases/download/V1/WebView2Loader.dll) |
 
 > 💡 **Release Hub:** View all release notes and checksums on the [ScrDeck V1 Release Page](https://github.com/ronnanakibu/scrdeck/releases/tag/V1).
 

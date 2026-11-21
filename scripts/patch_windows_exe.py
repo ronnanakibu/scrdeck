@@ -1,6 +1,8 @@
 import os
 import sys
 import struct
+import shutil
+import zipfile
 import ctypes
 from ctypes import wintypes
 
@@ -116,9 +118,78 @@ def patch_exe():
             EndUpdateResource(h, True)
             print(f"[patch_windows_exe] Error while updating resources for {exe_path}: {e}")
 
+    # Synchronize WebView2Loader.dll and package release assets
+    sync_release_artifacts(project_root)
+
     if not found_any:
         print("[patch_windows_exe] Notice: scrdeck.exe not found in candidates, skipping.")
     return
+
+def sync_release_artifacts(project_root):
+    release_dir = os.path.join(project_root, "release")
+    os.makedirs(release_dir, exist_ok=True)
+
+    target_gnu_release = os.path.join(project_root, "src-tauri", "target", "x86_64-pc-windows-gnu", "release")
+    src_tauri_bin = os.path.join(project_root, "src-tauri", "bin")
+    os.makedirs(src_tauri_bin, exist_ok=True)
+
+    # Locate WebView2Loader.dll
+    dll_candidates = [
+        os.path.join(target_gnu_release, "WebView2Loader.dll"),
+        os.path.join(src_tauri_bin, "WebView2Loader.dll"),
+        os.path.join(release_dir, "WebView2Loader.dll")
+    ]
+    found_dll = None
+    for cand in dll_candidates:
+        if os.path.exists(cand):
+            found_dll = cand
+            break
+
+    if found_dll:
+        # Sync to src-tauri/bin and release
+        bin_dll = os.path.join(src_tauri_bin, "WebView2Loader.dll")
+        rel_dll = os.path.join(release_dir, "WebView2Loader.dll")
+        if found_dll != bin_dll:
+            shutil.copy2(found_dll, bin_dll)
+        if found_dll != rel_dll:
+            shutil.copy2(found_dll, rel_dll)
+        print(f"[patch_windows_exe] Synced WebView2Loader.dll to {bin_dll} and {rel_dll}")
+
+    # Sync scrdeck.exe to release/
+    target_exe = os.path.join(target_gnu_release, "scrdeck.exe")
+    rel_exe = os.path.join(release_dir, "scrdeck.exe")
+    if os.path.exists(target_exe):
+        shutil.copy2(target_exe, rel_exe)
+        print(f"[patch_windows_exe] Synced scrdeck.exe to {rel_exe}")
+
+    # Sync NSIS setup if present
+    nsis_exe = os.path.join(target_gnu_release, "bundle", "nsis", "ScrDeck_0.1.0_x64-setup.exe")
+    rel_setup = os.path.join(release_dir, "ScrDeck-v1.0.0-Setup.exe")
+    if os.path.exists(nsis_exe):
+        shutil.copy2(nsis_exe, rel_setup)
+        print(f"[patch_windows_exe] Synced NSIS installer to {rel_setup}")
+
+    # Build Portable ZIP if both scrdeck.exe and WebView2Loader.dll exist
+    if os.path.exists(rel_exe) and os.path.exists(os.path.join(release_dir, "WebView2Loader.dll")):
+        zip_path = os.path.join(release_dir, "ScrDeck-v1.0.0-Portable.zip")
+        readme_content = (
+            "ScrDeck Portable v1.0.0\n"
+            "=======================\n\n"
+            "Quick Start:\n"
+            "1. Extract all files to a folder of your choice.\n"
+            "2. Double-click `scrdeck.exe` to launch ScrDeck.\n"
+            "3. Ensure `WebView2Loader.dll` remains in the same directory as `scrdeck.exe`.\n\n"
+            "Requirements:\n"
+            "- Windows 10 (Build 1809+) or Windows 11\n"
+            "- Microsoft Edge WebView2 Runtime (preinstalled on Windows 10/11, or auto-installed)\n\n"
+            "Documentation & Support:\n"
+            "https://github.com/ronnanakibu/scrdeck\n"
+        )
+        with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
+            z.write(rel_exe, "ScrDeck-Portable/scrdeck.exe")
+            z.write(os.path.join(release_dir, "WebView2Loader.dll"), "ScrDeck-Portable/WebView2Loader.dll")
+            z.writestr("ScrDeck-Portable/README.txt", readme_content)
+        print(f"[patch_windows_exe] Packaged portable archive: {zip_path}")
 
 if __name__ == "__main__":
     patch_exe()
