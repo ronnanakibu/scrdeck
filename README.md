@@ -26,13 +26,13 @@ ScrDeck eliminates the friction of remembering and typing complex command-line a
 
 ## 📦 Download & Installation
 
-Prebuilt Windows x64 executables are available directly via official GitHub Releases:
+Prebuilt Windows x64 binaries are available directly via official GitHub Releases:
 
 | Asset | Description | Direct Download |
 | :--- | :--- | :--- |
 | **Windows Installer (Recommended)** | NSIS setup installer with desktop shortcuts and system integration | [⬇️ **Download ScrDeck-v1.0.0-Setup.exe**](https://github.com/ronnanakibu/scrdeck/releases/download/V1/ScrDeck-v1.0.0-Setup.exe) |
-| **Portable Package (.zip)** | Full portable package (no installation required; includes `scrdeck.exe` & `WebView2Loader.dll`) | [⬇️ **Download ScrDeck-v1.0.0-Portable.zip**](https://github.com/ronnanakibu/scrdeck/releases/download/V1/ScrDeck-v1.0.0-Portable.zip) |
-| **Standalone Executable** | Standalone binary (`WebView2Loader.dll` must be in the same folder) | [⬇️ **Download scrdeck.exe**](https://github.com/ronnanakibu/scrdeck/releases/download/V1/scrdeck.exe) &middot; [⬇️ **WebView2Loader.dll**](https://github.com/ronnanakibu/scrdeck/releases/download/V1/WebView2Loader.dll) |
+| **Portable Package (.zip)** | Full portable package (no installation required; extract & launch) | [⬇️ **Download ScrDeck-v1.0.0-Portable.zip**](https://github.com/ronnanakibu/scrdeck/releases/download/V1/ScrDeck-v1.0.0-Portable.zip) |
+| **Single Standalone Executable** | Single monolithic `.exe` without companion DLLs | *Not yet available (planned for future MSVC toolchain release)* |
 
 > 💡 **Release Hub:** View all release notes and checksums on the [ScrDeck V1 Release Page](https://github.com/ronnanakibu/scrdeck/releases/tag/V1).
 
